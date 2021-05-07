@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=GCD
+comment0.text=\r\n\ Recursive\ greatest\ common\ divisor\ algorithm\r\n\r\n\ @author\ (John\ Niemiec)\r\n\ @version\ (May\ 7,\ 2021)\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=num1\ num2
+comment2.target=int\ gcd(int,\ int)
+numComments=3
