@@ -69,21 +69,25 @@ public class SierpinskiGasket extends JPanel
        int dxsquared = (int)Math.pow(xPos[0] - xPos[1],2);
        int dysquared = (int)Math.pow(yPos[0] - yPos[1],2);
        int distance = (int)Math.sqrt(dxsquared + dysquared);
-
+       for (int i = 0; i <= 4; i++)
+       {
+            xPos[i] = (int)Math.pow(xPos[i] - xPos[i+1],2);
+            yPos[i] = (int)Math.pow(yPos[i] - yPos[i+1],2);
+       }
 
 
         if (distance > 10)
         {
             //find midpoints and draw triangle
-            //int ABMidx = (xPos[0]
-            //int ABMidy = (
             
             //draw the tri
-            
+            page.drawPolyline(xPos, yPos);
             
             
             //call the 3 new triangles
-           
+            Triangle(xPos,yPos,page);
+            Triangle(xPos,yPos,page);
+            Triangle(xPos,yPos,page);
 
 
         }

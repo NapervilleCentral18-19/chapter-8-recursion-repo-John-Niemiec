@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=PyramidScheme
+comment0.text=\r\n\ What\ the\ pyramid\ scheme\ would\ look\ like\ using\ recursion\r\n\r\n\ @author\ (John\ Niemiec)\r\n\ @version\ (5/11/2021)\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=monetaryGoal
+comment2.target=int\ collect(int)
+numComments=3
