@@ -69,25 +69,37 @@ public class SierpinskiGasket extends JPanel
        int dxsquared = (int)Math.pow(xPos[0] - xPos[1],2);
        int dysquared = (int)Math.pow(yPos[0] - yPos[1],2);
        int distance = (int)Math.sqrt(dxsquared + dysquared);
-       for (int i = 0; i <= 4; i++)
-       {
-            xPos[i] = (int)Math.pow(xPos[i] - xPos[i+1],2);
-            yPos[i] = (int)Math.pow(yPos[i] - yPos[i+1],2);
-       }
+       
 
 
         if (distance > 10)
         {
             //find midpoints and draw triangle
+            int[] midPointsX = new int[4];
+            int[] midPointsY = new int[4];
             
+            for (int i = 0; i <= 2; i++)
+            {
+                midPointsX[i] =  (xPos[i] + xPos[i+1]) / 2;
+                midPointsY[i] =  (yPos[i] + yPos[i+1]) / 2;
+            }
             //draw the tri
-            page.drawPolyline(xPos, yPos);
+            page.drawPolyline (midPointsX, midPointsY, xPos.length);
             
+            //get new coordinates for the 3 new shapes
+            int[] tri1x = {  xPos[0],midPointsX[0],midPointsX[2],xPos[0]  };
+            int[] tri1y = {  yPos[0],midPointsY[0],midPointsY[2],yPos[0]  };
+            
+            int[] tri2x = {  midPointsX[0],xPos[1],midPointsX[1],midPointsX[0]    };
+            int[] tri2y = {  midPointsY[0],yPos[1],midPointsY[1],midPointsY[0]    };
+            
+            int[] tri3x = {  midPointsX[2], midPointsX[1], xPos[2], midPointsX[2]   };
+            int[] tri3y = {  midPointsY[2], midPointsY[1], yPos[2], midPointsY[2]   };
             
             //call the 3 new triangles
-            Triangle(xPos,yPos,page);
-            Triangle(xPos,yPos,page);
-            Triangle(xPos,yPos,page);
+            Triangle(tri1x,tri1y,page);
+            Triangle(tri2x,tri2y,page);
+            Triangle(tri3x,tri3y,page);
 
 
         }
