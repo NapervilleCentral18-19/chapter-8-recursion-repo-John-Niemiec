@@ -83,6 +83,11 @@ public class SierpinskiGasket extends JPanel
                 midPointsX[i] =  (xPos[i] + xPos[i+1]) / 2;
                 midPointsY[i] =  (yPos[i] + yPos[i+1]) / 2;
             }
+            /*the reason why this code is having issues is because when it draws the last point,
+            it defaults to zero because that place is empty. the for loop above doesn't fill it.
+            this means the last place to draw is 0 for x and 0 for y
+            */
+           
             //draw the tri
             page.drawPolyline (midPointsX, midPointsY, xPos.length);
             
