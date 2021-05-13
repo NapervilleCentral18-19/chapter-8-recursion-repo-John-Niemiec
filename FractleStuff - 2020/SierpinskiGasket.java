@@ -84,7 +84,7 @@ public class SierpinskiGasket extends JPanel
                 midPointsY[i] =  (yPos[i] + yPos[i+1]) / 2;
             }
             //draw the tri
-            page.drawPolyline (midPointsX, midPointsY, 3);
+            page.drawPolyline (midPointsX, midPointsY, 2);
             
             //get new coordinates for the 3 new shapes
             int[] tri1x = {  xPos[0],midPointsX[0],midPointsX[2],xPos[0]  };
