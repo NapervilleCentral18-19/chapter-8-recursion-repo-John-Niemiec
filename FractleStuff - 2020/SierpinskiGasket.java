@@ -74,32 +74,49 @@ public class SierpinskiGasket extends JPanel
 
         if (distance > 10)
         {
-            //find midpoints and draw triangle
-            int[] midPointsX = new int[4];
-            int[] midPointsY = new int[4];
+            //create more readable variables for later use
+            int Ax = xPos[0];
+            int Ay = yPos[0];
             
-            for (int i = 0; i <= 2; i++)
-            {
-                midPointsX[i] =  (xPos[i] + xPos[i+1]) / 2;
-                midPointsY[i] =  (yPos[i] + yPos[i+1]) / 2;
-            }
-            /*the reason why this code is having issues is because when it draws the last point,
-            it defaults to zero because that place is empty. the for loop above doesn't fill it.
-            this means the last place to draw is 0 for x and 0 for y
-            */
+            int Bx = xPos[1];
+            int By = yPos[1];
+            
+            int Cx = xPos[2];
+            int Cy = yPos[2];
+            
+            //find midpoints and draw triangle
+            int mpABx = (xPos[0] + xPos[1]) / 2;
+            int mpABy = (yPos[0] + yPos[1]) / 2;
+            
+            int mpBCx = (xPos[1] + xPos[2]) / 2;
+            int mpBCy = (yPos[1] + yPos[2]) / 2;
+            
+            int mpCAx = (xPos[2] + xPos[3]) / 2;
+            int mpCAy = (yPos[2] + yPos[3]) / 2;
+            
+            //create optional offset that will create cool effects (last drawing position)
+            
+            int offsetX = 400;  //mpABx;  use these for  
+            int offsetY = 300;  //mpABy;   the right image  
+            
+            
+            
+            int[] midPointsX = {mpABx, mpBCx, mpCAx, offsetX};
+            int[] midPointsY = {mpABy, mpBCy, mpCAy, offsetY};
+
            
             //draw the tri
             page.drawPolyline (midPointsX, midPointsY, xPos.length);
             
             //get new coordinates for the 3 new shapes
-            int[] tri1x = {  xPos[0],midPointsX[0],midPointsX[2],xPos[0]  };
-            int[] tri1y = {  yPos[0],midPointsY[0],midPointsY[2],yPos[0]  };
+            int[] tri1x = {Ax, mpABx, mpCAx, Ax};
+            int[] tri1y = {Ay, mpABy, mpCAy, Ay};
             
-            int[] tri2x = {  midPointsX[0],xPos[1],midPointsX[1],midPointsX[0]    };
-            int[] tri2y = {  midPointsY[0],yPos[1],midPointsY[1],midPointsY[0]    };
+            int[] tri2x = {mpABx, Bx, mpBCx, mpABx};
+            int[] tri2y = {mpABy, By, mpBCy, mpABy};
             
-            int[] tri3x = {  midPointsX[2], midPointsX[1], xPos[2], midPointsX[2]   };
-            int[] tri3y = {  midPointsY[2], midPointsY[1], yPos[2], midPointsY[2]   };
+            int[] tri3x = {mpCAx, mpBCx, Cx, mpCAx};
+            int[] tri3y = {mpCAy, mpBCy, Cy, mpCAy};
             
             //call the 3 new triangles
             Triangle(tri1x,tri1y,page);
