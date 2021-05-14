@@ -17,7 +17,6 @@ public class PyramidScheme
         int sum = 0;
         if (monetaryGoal == 1)
         {
-            System.out.println("Monetary goal");
             return 1;
         }
         
