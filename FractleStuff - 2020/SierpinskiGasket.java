@@ -95,9 +95,8 @@ public class SierpinskiGasket extends JPanel
             int mpCAy = (yPos[2] + yPos[3]) / 2;
             
             //create optional offset that will create cool effects (last drawing position)
-            
-            int offsetX = 400;  //mpABx;  use these for  
-            int offsetY = 300;  //mpABy;   the right image  
+            int offsetX = mpABx;   //500;
+            int offsetY = mpABy;   //500; 
             
             
             
